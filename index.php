@@ -1,6 +1,6 @@
 <?php
+include "php/config.php";
 if (isset($_GET['u'])) {
-    include "php/config.php";
     $u = mysqli_real_escape_string($conn, $_GET['u']);
 
     $sql = mysqli_query($conn, "SELECT full_url FROM url WHERE shorten_url = '{$u}'");
@@ -47,8 +47,22 @@ if (isset($_GET['u'])) {
         while ($row = mysqli_fetch_assoc($sql2)) {
             ?>
             <div class="data">
-                <li><a href=""><?= $row['shorten_url'] ?></a></li>
-                <li><?= $row['full_url'] ?></li>
+                <li><a target="_blank" href="http://localhost/url-shortener?u=<?= $row['shorten_url'] ?>">
+                    <?php
+                    if (strlen('localhost/url-shortener?u=' . $row['shorten_url']) > 50){
+							echo 'localhost/url-shortener?u='.substr($row['shorten_url'],0,50).'...';
+                    }else{
+                        echo 'localhost/url-shortener?u='.$row['shorten_url'];
+                    }
+                    ?>
+                    </a></li>
+                <li> <?php
+                    if (strlen($row['full_url']) > 65){
+                        echo substr($row['full_url'],0,65) . '...';
+                    }else{
+                        echo $row['full_url'];
+                    }
+                    ?></li>
                 <li><?= $row['clicks'] ?></li>
                 <li><a href="#">Delete</a></li>
             </div>
