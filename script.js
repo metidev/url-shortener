@@ -3,8 +3,10 @@ const form = document.querySelector(".wrapper form"),
     shortenBtn = form.querySelector("button"),
     blurEffect = document.querySelector(".blur-effect"),
     popupBox = document.querySelector(".popup-box"),
+    form2 = popupBox.querySelector("form"),
     shortenUrl = popupBox.querySelector("input"),
-    saveBtn = popupBox.querySelector("button");
+    saveBtn = popupBox.querySelector("button"),
+    copyBtn = popupBox.querySelector(".copy-icon");
 form.onsubmit = (e) => {
     e.preventDefault();
 }
@@ -21,7 +23,14 @@ shortenBtn.onclick = () => {
 
                 let domain = "localhost/url-shortener/"
                 shortenUrl.value = domain + data;
-                saveBtn.onclick = ()=>{
+                copyBtn.onclick = () => {
+                    shortenUrl.select();
+                    document.execCommand('copy');
+                }
+                form2.onsubmit = (e) => {
+                    e.preventDefault();
+                }
+                saveBtn.onclick = () => {
                     location.reload();
                 }
             } else {

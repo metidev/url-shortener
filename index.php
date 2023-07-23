@@ -8,8 +8,11 @@ if (isset($_GET)) {
     }
     $sql = mysqli_query($conn, "SELECT full_url FROM url WHERE shorten_url = '{$new_url}'");
     if (mysqli_num_rows($sql) > 0) {
-        $full_url = mysqli_fetch_assoc($sql);
-        header("Location:" . $full_url['full_url']);
+        $count_query = mysqli_query($conn, "UPDATE url SET clicks = clicks + 1 WHERE shorten_url = '{$new_url}'");
+        if ($count_query) {
+            $full_url = mysqli_fetch_assoc($sql);
+            header("Location:" . $full_url['full_url']);
+        }
     }
 }
 ?>
@@ -81,7 +84,7 @@ if (isset($_GET)) {
     <div class="info-box">Your short link is ready. You can also edit your short link now but can't edit once you saved
         it
     </div>
-    <form action="#">
+    <form action="">
         <label>Edit your shorten url</label>
         <input type="text" spellcheck="false" value="">
         <i class="copy-icon uil uil-copy-alt"></i>
