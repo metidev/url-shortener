@@ -137,9 +137,11 @@ form input:valid ~ button {
     width: 100%;
     border-right: 1px solid #ddd;
 }
+
 .urls-area li:last-child {
     border-right: 0;
 }
+
 .urls-area .title li {
     text-align: center;
     background: #f2f2f2;
@@ -189,4 +191,91 @@ form input:valid ~ button {
 
 .urls-area li:nth-child(4) {
     max-width: 14%;
+}
+
+.blur-effect {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.popup-box {
+    position: absolute;
+    background: #fff;
+    padding: 25px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.popup-box.shadow {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box .info-box {
+    color: #0f5753;
+    background: #bef4f1;
+    border: 1px solid #7de8e3;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.info-box.error {
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #7de8e3;
+}
+
+.popup-box form {
+    position: relative;
+    margin-top: 10px;
+}
+
+.popup-box form label {
+    font-size: 18px;
+}
+
+.popup-box form .copy-icon {
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-85%);
+    cursor: pointer;
+}
+
+form .copy-icon:hover {
+    color: #20B2AA;
+}
+
+.popup-box form input {
+    height: 45px;
+    border: 1px solid #ccc;
+    padding: 0 35px 0 15px;
+    margin-top: 3px;
+}
+
+.popup-box form button {
+    position: relative;
+    right: 0;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 100%;
 }
