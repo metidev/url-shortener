@@ -10,7 +10,7 @@ if (!empty($full_url) && filter_var($full_url, FILTER_VALIDATE_URL)) {
         $sql2 = mysqli_query($conn, "INSERT INTO url(shorten_url,full_url,clicks) VALUES('{$ran_url}','{$full_url}','0')");
         if ($sql2) {
             $sql3 = mysqli_query($conn, "SELECT shorten_url FROM url WHERE shorten_url = '{$ran_url}'");
-            if (mysqli_num_rows($sql) > 0) {
+            if (mysqli_num_rows($sql3) > 0) {
                 $shorten_url = mysqli_fetch_assoc($sql3);
                 echo $shorten_url['shorten_url'];
             }

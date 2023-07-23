@@ -60,7 +60,7 @@
         <div class="info-box">Your short link is ready. You can also edit your short link now but can't edit once you saved it</div>
     	<form action="#">
             <label>Edit your shorten url</label>
-            <input type="text" spellcheck="false" value="example.com/xyz">
+            <input type="text" spellcheck="false" value="">
             <i class="copy-icon uil uil-copy-alt"></i>
 			<button>Save</button>
         </form>
