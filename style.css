@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+    background: #20B2AA;
+}
+
+.wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 800px;
+}
+
+.wrapper form {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+form .url-icon {
+    position: absolute;
+    width: 50px;
+    text-align: center;
+    font-size: 23px;
+    color: #c4c4c4;
+    pointer-events: none;
+}
+form input:valid ~ .url-icon{
+    color: #20B2AA;
+}
+form input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+    caret-color: #20B2AA;
+    border: 2px solid #ddd;
+    padding: 0 120px 0 45px;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+}
+form input:valid{
+    border-color: #20B2AA;
+}
+form input::placeholder {
+    color: #c4c4c4;
+}
+form input:focus::placeholder {
+    color: #d9d9d9;
+}
+
+form button {
+    position: absolute;
+    right: 6px;
+    padding: 5px 15px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #20B2AA;
+    opacity: 0;
+    pointer-events: none;
+}
+form input:valid ~ button{
+    opacity: 1;
+    pointer-events: auto;
+}
