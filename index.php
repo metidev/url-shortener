@@ -39,8 +39,18 @@ if (isset($_GET)) {
     if (mysqli_num_rows($sql2) > 0) {
     ?>
     <div class="count">
-        <span>Total Links: <span>10</span> & Total Clicks: 140</span>
-        <a href="#">Clear All</a>
+        <?php
+        $sql3 = mysqli_query($conn,"SELECT COUNT(*) FROM url");
+        $res = mysqli_fetch_assoc($sql3);
+
+        $sql4 = mysqli_query($conn,"SELECT clicks FROM url");
+        $total = 0;
+        while ($c = mysqli_fetch_assoc($sql4)){
+            $total = $c['clicks'] + $total;
+        }
+        ?>
+        <span>Total Links: <span><?= end($res) ?></span> & Total Clicks: <span><?= $total ?></span></span>
+        <a href="php/delete.php?delete=all">Clear All</a>
     </div>
     <div class="urls-area">
         <div class="title">
@@ -70,7 +80,7 @@ if (isset($_GET)) {
                     }
                     ?></li>
                 <li><?= $row['clicks'] ?></li>
-                <li><a href="#">Delete</a></li>
+                <li><a href="php/delete.php?id=<?= $row['shorten_url'] ?>">Delete</a></li>
             </div>
         <?php }
         } ?>
