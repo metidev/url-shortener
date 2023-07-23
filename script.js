@@ -19,7 +19,7 @@ shortenBtn.onclick = () => {
                 blurEffect.style.display = "block";
                 popupBox.classList.add("show");
 
-                let domain = "localhost/url-shortener?u="
+                let domain = "localhost/url-shortener/"
                 shortenUrl.value = domain + data;
                 saveBtn.onclick = ()=>{
                     location.reload();
