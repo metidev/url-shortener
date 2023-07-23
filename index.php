@@ -1,3 +1,15 @@
+<?php
+if (isset($_GET['u'])) {
+    include "php/config.php";
+    $u = mysqli_real_escape_string($conn, $_GET['u']);
+
+    $sql = mysqli_query($conn, "SELECT full_url FROM url WHERE shorten_url = '{$u}'");
+    if (mysqli_num_rows($sql) > 0) {
+        $full_url = mysqli_fetch_assoc($sql);
+        header("Location:" . $full_url['full_url']);
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +28,10 @@
         <i class="url-icon uil uil-link"></i>
         <button>Shorten</button>
     </form>
+    <?php
+    $sql2 = mysqli_query($conn, "SELECT * FROM url ORDER BY id DESC");
+    if (mysqli_num_rows($sql2) > 0) {
+    ?>
     <div class="count">
         <span>Total Links: <span>10</span> & Total Clicks: 140</span>
         <a href="#">Clear All</a>
@@ -27,44 +43,33 @@
             <li>Clicks</li>
             <li>Action</li>
         </div>
-        <div class="data">
-            <li><a href="">example.com/xyz</a></li>
-            <li>www.google.com/dsfgsdfesdsfsdsdfdsfdsfsfdsfdsf</li>
-            <li>16</li>
-            <li><a href="#">Delete</a></li>
-        </div>
-        <div class="data">
-            <li><a href="">example.com/xyz</a></li>
-            <li>www.google.com/dsfgsdfesdsfsdsdfdsfdsfsfdsfdsf</li>
-            <li>16</li>
-            <li><a href="#">Delete</a></li>
-        </div>
-        <div class="data">
-            <li><a href="">example.com/xyz</a></li>
-            <li>www.google.com/dsfgsdfesdsfsdsdfdsfdsfsfdsfdsf</li>
-            <li>16</li>
-            <li><a href="#">Delete</a></li>
-        </div>
-        <div class="data">
-            <li><a href="">example.com/xyz</a></li>
-            <li>www.google.com/dsfgsdfesdsfsdsdfdsfdsfsfdsfdsf</li>
-            <li>16</li>
-            <li><a href="#">Delete</a></li>
-        </div>
+        <?php
+        while ($row = mysqli_fetch_assoc($sql2)) {
+            ?>
+            <div class="data">
+                <li><a href=""><?= $row['shorten_url'] ?></a></li>
+                <li><?= $row['full_url'] ?></li>
+                <li><?= $row['clicks'] ?></li>
+                <li><a href="#">Delete</a></li>
+            </div>
+            <?php } } ?>
     </div>
+
 </div>
 <div class="blur-effect">
 
 </div>
-    <div class="popup-box">
-        <div class="info-box">Your short link is ready. You can also edit your short link now but can't edit once you saved it</div>
-    	<form action="#">
-            <label>Edit your shorten url</label>
-            <input type="text" spellcheck="false" value="">
-            <i class="copy-icon uil uil-copy-alt"></i>
-			<button>Save</button>
-        </form>
+<div class="popup-box">
+    <div class="info-box">Your short link is ready. You can also edit your short link now but can't edit once you saved
+        it
     </div>
+    <form action="#">
+        <label>Edit your shorten url</label>
+        <input type="text" spellcheck="false" value="">
+        <i class="copy-icon uil uil-copy-alt"></i>
+        <button>Save</button>
+    </form>
+</div>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
