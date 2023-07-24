@@ -39,9 +39,9 @@ To set up the URL Shortener Website locally, follow these steps:
 
 4. Optionally, customize the generated short URL to make it more user-friendly.
 
-5. Copy the shortened URL or the QR code to share it with others.
+5. Copy the shortened URL to share it with others.
 
-6. Use the website's dashboard (if registered) to view statistics and analytics for your shortened URLs.
+6. Use the website's dashboard to view statistics and analytics for your shortened URLs.
 
 
 
