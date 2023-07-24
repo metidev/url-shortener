@@ -7,8 +7,6 @@ The URL Shortener Website is a web application developed using HTML, CSS, JavaSc
 - URL Shortening: Users can input long URLs into the website and generate shortened versions of the URLs.
 - Custom Short URLs: Optionally, users can customize the generated short URL to make it more meaningful or memorable.
 - Click Tracking: The application tracks the number of clicks each shortened URL receives, providing valuable statistics to users.
-- QR Code Generation: Users can generate QR codes for their shortened URLs, making it easy for others to access the website via mobile devices.
-- User Registration: Optional user registration and login functionality allow users to manage their shortened URLs and track clicks over time.
 - Responsive Design: The website is designed to be responsive and accessible on various devices, including desktops, tablets, and smartphones.
 
 ## Installation
