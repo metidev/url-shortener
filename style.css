@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 body {
@@ -135,11 +135,11 @@ form input:valid ~ button {
 .urls-area li {
     list-style: none;
     width: 100%;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 
 .urls-area li:last-child {
-    border-right: 0;
+    border-left: 0;
 }
 
 .urls-area .title li {
@@ -149,6 +149,7 @@ form input:valid ~ button {
 }
 
 .urls-area .data li {
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,11 +187,11 @@ form input:valid ~ button {
 }
 
 .urls-area li:nth-child(3) {
-    max-width: 11%;
+    max-width: 14%;
 }
 
 .urls-area li:nth-child(4) {
-    max-width: 14%;
+    max-width: 11%;
 }
 
 .blur-effect {

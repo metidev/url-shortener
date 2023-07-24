@@ -30,9 +30,9 @@ if (isset($_GET)) {
 <body>
 <div class="wrapper">
     <form action="#">
-        <input type="text" name="full-url" placeholder="Enter or paste a long url" required>
+        <input type="text" name="full-url" placeholder="لینک طولانی را وارد یا جایگذاری کنید" required>
         <i class="url-icon uil uil-link"></i>
-        <button>Shorten</button>
+        <button>کوتاه کن</button>
     </form>
     <?php
     $sql2 = mysqli_query($conn, "SELECT * FROM url ORDER BY id DESC");
@@ -49,15 +49,15 @@ if (isset($_GET)) {
             $total = $c['clicks'] + $total;
         }
         ?>
-        <span>Total Links: <span><?= end($res) ?></span> & Total Clicks: <span><?= $total ?></span></span>
-        <a href="php/delete.php?delete=all">Clear All</a>
+        <a href="php/delete.php?delete=all">حذف همه</a>
+        <span>کل پیوندها :  <span><?= end($res) ?></span>  |  مجموع کلیک ها : <span><?= $total ?></span></span>
     </div>
-    <div class="urls-area">
+    <div dir="rtl" class="urls-area">
         <div class="title">
-            <li>Shorten URL</li>
-            <li>Original URL</li>
-            <li>Clicks</li>
-            <li>Action</li>
+            <li>پیوند کوتاه شده</li>
+            <li>پیوند اصلی</li>
+            <li>تعداد کلیک</li>
+            <li>عملیات</li>
         </div>
         <?php
         while ($row = mysqli_fetch_assoc($sql2)) {
@@ -80,25 +80,24 @@ if (isset($_GET)) {
                     }
                     ?></li>
                 <li><?= $row['clicks'] ?></li>
-                <li><a href="php/delete.php?id=<?= $row['shorten_url'] ?>">Delete</a></li>
+                <li><a href="php/delete.php?id=<?= $row['shorten_url'] ?>">حذف</a></li>
             </div>
         <?php }
         } ?>
     </div>
-
 </div>
 <div class="blur-effect">
 
 </div>
 <div class="popup-box">
-    <div class="info-box">Your short link is ready. You can also edit your short link now but can't edit once you saved
-        it
+    <div class="info-box">
+        لینک کوتاه شما آماده است. اکنون می‌توانید پیوند کوتاه خود را نیز ویرایش کنید، در انجام تغییرات دقت کنید زیرا بعد از اعمال تغییرات قابل ویرایش نیست.
     </div>
     <form action="">
-        <label>Edit your shorten url</label>
+        <label>ویرایش پیوند کوتاه شده</label>
         <input type="text" spellcheck="false" value="">
         <i class="copy-icon uil uil-copy-alt"></i>
-        <button>Save</button>
+        <button>ذخیره</button>
     </form>
 </div>
 </body>

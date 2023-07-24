@@ -16,13 +16,13 @@ if (!empty($full_url)) {
                 if ($sql2) {
                     echo "success";
                 } else {
-                    echo "Error - Something went wrong!";
+                    echo "خطا - مشکلی رخ داد";
                 }
             } else {
-                echo "Error - This url already exists!";
+                echo "خطا - این پیوند قبلا وجود دارد!";
             }
         } else {
-            echo "Error - You have to enter short URL!";
+            echo "خطا - لطفا پیوند خود را وارد کنید";
         }
     } else {
         echo "Invalid URL - You can't edit domain name!";
