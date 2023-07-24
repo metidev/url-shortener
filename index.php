@@ -63,12 +63,12 @@ if (isset($_GET)) {
         while ($row = mysqli_fetch_assoc($sql2)) {
             ?>
             <div class="data">
-                <li><a target="_blank" href="http://localhost/url-shortener/<?= $row['shorten_url'] ?>">
+                <li><a target="_blank" href="http://localhost/url/<?= $row['shorten_url'] ?>">
                         <?php
-                        if (strlen('localhost/url-shortener/' . $row['shorten_url']) > 50) {
-                            echo 'localhost/url-shortener/' . substr($row['shorten_url'], 0, 50) . '...';
+                        if (strlen('localhost/url/' . $row['shorten_url']) > 50) {
+                            echo 'localhost/url/' . substr($row['shorten_url'], 0, 50) . '...';
                         } else {
-                            echo 'localhost/url-shortener/' . $row['shorten_url'];
+                            echo 'localhost/url/' . $row['shorten_url'];
                         }
                         ?>
                     </a></li>

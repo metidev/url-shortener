@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/index.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/php/url-controll.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/php/url-save.php" dialect="MySQL" />
   </component>
 </project>
