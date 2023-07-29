@@ -16,7 +16,7 @@ To set up the URL Shortener Website locally, follow these steps:
 1. Clone the repository to your local machine using the following command:
 
    ```
-   https://github.com/metidev/url-shortener.git
+   git clone https://github.com/metidev/url-shortener.git
    ```
 
 2. Create a MySQL database and import the provided database schema `database.sql`.
